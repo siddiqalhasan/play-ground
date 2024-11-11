@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Keybord Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body class="">
+
+   <main class=" min-h-screen bg-[url(images/background.png)] bg-black bg-no-repeat bg-center">
+    <section class="home-screen flex items-center min-h-screen hidden"> 
+        <div class="all-text w-2/3 mx-auto flex flex-col items-center uppercase gap-10 ">
+            <h1 class="text-white text-9xl anton-regular">alphabet clash</h1>
+            <p class="text-white capitalize text-2xl">unlesh your keyboard kung fu : press enter to play</p>
+            <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg px-10 bg-white py-5 rounded-xl font-bold text-xl">Play Now</button>
+            
+        </div>
+              
+    </section>
+
+    <section class="play-ground">
+        <div class="flex flex-col items-center pt-24 gap-10">
+            <!-- screen -->
+            <div class="artboard artboard-horizontal phone-6 border-[18px] rounded-xl mx-auto">1024×320</div>
+            <!-- keypad -->
+            <div>
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd class="kbd">q</kbd>
+                    <kbd class="kbd">w</kbd>
+                    <kbd class="kbd">e</kbd>
+                    <kbd class="kbd">r</kbd>
+                    <kbd class="kbd">t</kbd>
+                    <kbd class="kbd">y</kbd>
+                    <kbd class="kbd">u</kbd>
+                    <kbd class="kbd">i</kbd>
+                    <kbd class="kbd">o</kbd>
+                    <kbd class="kbd">p</kbd>
+                </div>
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd class="kbd">a</kbd>
+                    <kbd class="kbd">s</kbd>
+                    <kbd class="kbd">d</kbd>
+                    <kbd class="kbd">f</kbd>
+                    <kbd class="kbd">g</kbd>
+                    <kbd class="kbd">h</kbd>
+                    <kbd class="kbd">j</kbd>
+                    <kbd class="kbd">k</kbd>
+                    <kbd class="kbd">l</kbd>
+                </div>
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd class="kbd">z</kbd>
+                    <kbd class="kbd">x</kbd>
+                    <kbd class="kbd">c</kbd>
+                    <kbd class="kbd">v</kbd>
+                    <kbd class="kbd">b</kbd>
+                    <kbd class="kbd">n</kbd>
+                    <kbd class="kbd">m</kbd>
+                    <kbd class="kbd">/</kbd>
+                </div>
+            </div>
+              <!-- result -->
+               <div class="life&score-btn flex justify-between w-2/3">
+                <button class="life-btn btn text-white bg-red-600  rounded-full ">
+                    
+                    Life <span><img src="./images/Group 23.svg" alt=""></span> 1
+                </button>
+                <button class="score-btn btn text-white bg-violet-950  rounded-full">
+                    
+                    Score <span> <img src="./images/monetization_on.svg" alt=""></span>1
+                  </button>
+               </div>
+
+        </div>
+    </section>
+    <section class="score-field">
+
+    </section>
+   </main>
     
+
+    <script src="tailwind.config.js"></script>
 </body>
 </html>
