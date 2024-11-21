@@ -1,10 +1,6 @@
 function play(){
-    const homeSection = document.getElementById('home-screen');
-    homeSection.classList.add('hidden');
-
-    const playGround = document.getElementById('play-screen');
-    playGround.classList.remove('hidden');
-
+    hideElementById('home-screen')
+    showElemntById('play-screen')
     continueGame();
 }
 function continueGame(){
@@ -15,22 +11,77 @@ function continueGame(){
 
     addBackgroundColor(alphabet);
 }
+document.addEventListener('keyup', handleKeyBoardKeyUpEvent);
 
-function getARandomAlphabet(){
+function handleKeyBoardKeyUpEvent(event){
+    const playerPressed = event.key;
+    console.log('player pressed', playerPressed);
 
-    const alphabetString = 'abcdefghijklmnopqrstuvwxyz';
-    const alphabets = alphabetString.split('');
-    /* console.log(alphabets) */
+    if(playerPressed === 'Escape'){
+        showGameOver();
+    };
 
-    const randomNumber = Math.random() * 25;
-    const index = Math.round(randomNumber);
+    /* get the expected to press */
+    const currentAlphabetElement = document.getElementById('current-alphabet')
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+    console.log('expected alphabet', expectedAlphabet);
 
-    const alphabet = alphabets[index];
-    console.log(index, alphabet);
-    return alphabet;
+    /* check right or wrong key pressed */
+    if(playerPressed === expectedAlphabet){
+        
 
+        const currentScore = getTextElementValueById('current-score');
+        const newScore = currentScore + 1;
+        setTextElementValueById('current-score', newScore);
+
+        setTextElementValueById('total-score', newScore);
+       
+
+
+        removeBackgroundColorById(expectedAlphabet);
+        showElemntById('right-button');
+        hideElementById('wrong-button');
+       
+        continueGame();
+
+    }
+    else{
+        showElemntById('wrong-button');
+        hideElementById('right-button');
+        /* const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+        const newLife = currentLife - 1;
+        currentLifeElement.innerText = newLife;
+        console.log('you lose a life.'); */
+
+        const currentLife = getTextElementValueById('current-life');
+        const newLife = currentLife - 1;
+        setTextElementValueById('current-life', newLife);
+
+       /* play again */
+
+        if(newLife === 0){
+            showGameOver();
+            console.log('game over');
+            
+        }
+        
+    }
 }
-function addBackgroundColor(elementId){
-    const element = document.getElementById(elementId);
-    element.classList.add('bg-orange-400');
+function playAgain(){
+    showElemntById('play-screen');
+    hideElementById('final-score-screen');
+
+    /* reset Score and life */ 
+
+    setTextElementValueById('current-life', 5);
+    setTextElementValueById('current-score', 0);
+    setTextElementValueById('total-score', 0);
+    /* clear the last selected button */
+    
+    continueGame();
+    
+    
 }
